@@ -1,0 +1,33 @@
+.header-main-container {
+  width: 100%;
+  background: #1e1e30;
+}
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.logo-name {
+  font-family: 'Bree Serif';
+  font-size: 24px;
+  font-weight: 500;
+  color: #f8fafc;
+  cursor: pointer;
+}
+.india-name {
+  font-family: 'Bree Serif';
+  font-size: 24px;
+  font-weight: 500;
+  color: #007bff;
+}
+.route-link {
+  text-decoration: none;
+  color: #f8fafc;
+  font-family: 'Roboto';
+  font-size: 17px;
+  font-weight: 600;
+  margin-right: 20px;
+}
