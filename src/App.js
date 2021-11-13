@@ -151,14 +151,12 @@ const statesList = [
 ]
 
 const App = () => (
-  <div className="app-container">
+  <>
     <Header />
-    <div className="app-body">
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </div>
-  </div>
+    <Switch>
+      <Route exact path="/" component={Home} />
+    </Switch>
+  </>
 )
 
 export default App
