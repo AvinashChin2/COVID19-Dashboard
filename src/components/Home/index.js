@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 import Loader from 'react-loader-spinner'
+import StateListDetails from '../StateListDetails'
 import './index.css'
 
 const apiStatusConstants = {
@@ -161,7 +162,7 @@ class Home extends Component {
   state = {
     searchInput: '',
     apiStatus: apiStatusConstants.initial,
-    resultList: [],
+    resultListDetails: [],
   }
 
   componentDidMount() {
@@ -169,7 +170,7 @@ class Home extends Component {
   }
 
   getStateWiseDetailsList = async () => {
-    const {resultList} = this.state
+    const resultList = []
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const apiUrl = 'https://apis.ccbp.in/covid19-state-wise-data'
     const options = {
@@ -192,7 +193,7 @@ class Home extends Component {
 
           resultList.push({
             stateCode: keyName,
-            name: statesList.find(state => state.state_code === keyName)
+            name: statesList.map(state => state.state_code === keyName)
               .state_name,
             confirmed,
             deceased,
@@ -204,16 +205,32 @@ class Home extends Component {
         }
         return resultList
       })
+      console.log(resultList)
+      this.setState({
+        apiStatus: apiStatusConstants.success,
+        resultListDetails: resultList,
+      })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
-    this.setState({apiStatus: apiStatusConstants.success})
   }
 
   renderStateList = () => {
-    const {searchInput} = this.state
+    const {searchInput, resultListDetails} = this.state
     return (
-      <div className="search-container">
-        <BsSearch className="search-icon" />
-        <input type="search" />
+      <div>
+        <div className="search-container">
+          <BsSearch className="search-icon" />
+          <input type="search" />
+        </div>
+        <div>
+          {resultListDetails.map(eachItem => (
+            <StateListDetails
+              stateWiseDetails={eachItem}
+              key={eachItem.stateCode}
+            />
+          ))}
+        </div>
       </div>
     )
   }
