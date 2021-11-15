@@ -1,4 +1,5 @@
 import {Component} from 'react'
+
 import {Link} from 'react-router-dom'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import './index.css'
@@ -7,12 +8,10 @@ class Header extends Component {
   state = {isActive: false}
 
   onClickButton = () => {
-    const {isActive} = this.state
     this.setState(prevState => ({isActive: !prevState.isActive}))
   }
 
   onCloseList = () => {
-    const {isActive} = this.state
     this.setState({isActive: false})
   }
 
@@ -43,9 +42,12 @@ class Header extends Component {
     return (
       <nav className="header-main-container">
         <div className="nav-container">
-          <h1 className="logo-name">
-            COVID19<span className="india-name">INDIA</span>
-          </h1>
+          <Link to="/" className="route-link">
+            <h1 className="logo-name">
+              COVID19
+              <span className="india-name">INDIA</span>
+            </h1>
+          </Link>
           <div className="nav-content-list-large">
             <Link to="/" className="route-link">
               Home
