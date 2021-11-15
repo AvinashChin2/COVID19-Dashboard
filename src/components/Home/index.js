@@ -193,7 +193,7 @@ class Home extends Component {
 
           resultList.push({
             stateCode: keyName,
-            name: statesList.map(state => state.state_code === keyName)
+            name: statesList.find(state => state.state_code === keyName)
               .state_name,
             confirmed,
             deceased,
