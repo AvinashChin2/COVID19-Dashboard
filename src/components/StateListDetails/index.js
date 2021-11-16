@@ -14,7 +14,7 @@ const StateListDetails = props => {
   } = stateWiseDetails
   return (
     <div>
-      <h1 className="s">{stateCode}</h1>
+      <h1 className="s">sd</h1>
     </div>
   )
 }

@@ -26,11 +26,36 @@
 }
 .route-link {
   text-decoration: none;
-  color: #f8fafc;
+  color: #94a3b8;
   font-family: 'Roboto';
   font-size: 17px;
   font-weight: 600;
   margin-right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.route-link > :hover {
+  color: #f8fafc;
+}
+.route-link-active > :hover {
+  color: #f8fafc;
+}
+.nav-content-list-large {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.route-link-active {
+  text-decoration: none;
+  font-family: 'Roboto';
+  font-size: 17px;
+  font-weight: 600;
+  margin-right: 20px;
+  color: #f8fafc;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 @media screen and (max-width: 768px) {
   .nav-content-list-large {

@@ -1,0 +1,15 @@
+.about-app-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #161625;
+  min-height: 100vh;
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}

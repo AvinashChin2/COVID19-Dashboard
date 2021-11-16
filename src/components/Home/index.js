@@ -179,22 +179,21 @@ class Home extends Component {
     const response = await fetch(apiUrl, options)
     if (response.ok === true) {
       const data = await response.json()
+      console.log(data)
       const keyNames = Object.keys(data)
-      keyNames.forEach(keyName => {
-        if (data[keyName]) {
-          const {total} = data[keyName]
+      statesList.forEach(stateObj => {
+        if (data[stateObj.state_code]) {
+          const {total} = data[stateObj.state_code]
           const confirmed = total.confirmed ? total.confirmed : 0
           const deceased = total.deceased ? total.deceased : 0
           const recovered = total.recovered ? total.recovered : 0
           const tested = total.tested ? total.tested : 0
-          const population = data[keyName].meta.population
-            ? data[keyName].meta.population
+          const population = data[stateObj.state_code].meta.population
+            ? data[stateObj.state_code].meta.population
             : 0
 
           resultList.push({
-            stateCode: keyName,
-            name: statesList.find(state => state.state_code === keyName)
-              .state_name,
+            stateCode: stateObj,
             confirmed,
             deceased,
             recovered,
@@ -215,13 +214,23 @@ class Home extends Component {
     }
   }
 
+  onChangeInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
   renderStateList = () => {
     const {searchInput, resultListDetails} = this.state
     return (
-      <div>
+      <div className="main-content-container">
         <div className="search-container">
           <BsSearch className="search-icon" />
-          <input type="search" />
+          <input
+            type="search"
+            value={searchInput}
+            className="input-box"
+            placeholder="Enter the State"
+            onChange={this.onChangeInput}
+          />
         </div>
         <div>
           {resultListDetails.map(eachItem => (

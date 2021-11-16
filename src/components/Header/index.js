@@ -49,10 +49,10 @@ class Header extends Component {
             </h1>
           </Link>
           <div className="nav-content-list-large">
-            <Link to="/" className="route-link">
+            <Link to="/" className="route-link-active">
               Home
             </Link>
-            <Link to="/about" className="route-link">
+            <Link to="/about" className="route-link-active">
               About
             </Link>
           </div>
