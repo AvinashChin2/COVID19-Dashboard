@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Faqs from '../Faqs'
+import Footer from '../Footer'
 import './index.css'
 
 const apiStatusConstants = {
@@ -51,13 +52,34 @@ class About extends Component {
   renderAboutSuccess = () => {
     const {aboutFactoids, aboutFaqs} = this.state
     return (
-      <div>
-        {aboutFaqs.map(eachItem => (
-          <Faqs faqDetails={eachItem} key={eachItem.qno} />
-        ))}
+      <div className="about-main-container">
+        <h1 className="about-title">About</h1>
+        <p className="about-date">Last update on march 28th 2021.</p>
+        <h1 className="about-heading">
+          COVID-19 vaccines be ready for distribution
+        </h1>
+        <ul className="about-faqs-container" testid="about-faqs">
+          {aboutFaqs.map(eachItem => (
+            <Faqs faqDetails={eachItem} key={eachItem.qno} />
+          ))}
+        </ul>
+        <div className="about-footer-container">
+          <Footer />
+        </div>
       </div>
     )
   }
+
+  renderAboutFailure = () => (
+    <div className="home-failure-container">
+      <img
+        src="https://res.cloudinary.com/avinashchinthapally/image/upload/v1637171828/Project%20Images/Group_7484_esfix6.png"
+        className="failure-image"
+        alt="failure"
+      />
+      <h1 className="failure-heading">PAGE NOT FOUND</h1>
+    </div>
+  )
 
   renderAboutLoading = () => (
     <div testid="loader" className="loader-container">

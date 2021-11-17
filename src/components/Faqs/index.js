@@ -4,8 +4,9 @@ const Faqs = props => {
   const {faqDetails} = props
   const {answer, category, question} = faqDetails
   return (
-    <div>
-      <h1>{question}</h1>
+    <div className="faq-container">
+      <p className="faq-question">{question}</p>
+      <p className="faq-answer">{answer}</p>
     </div>
   )
 }

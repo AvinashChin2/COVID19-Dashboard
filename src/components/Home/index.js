@@ -170,6 +170,7 @@ class Home extends Component {
   }
 
   getStateWiseDetailsList = async () => {
+    const {resultListDetails} = this.state
     const resultList = []
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const apiUrl = 'https://apis.ccbp.in/covid19-state-wise-data'
@@ -204,11 +205,12 @@ class Home extends Component {
         }
         return resultList
       })
-      console.log(resultList)
+      resultListDetails.push(resultList)
       this.setState({
         apiStatus: apiStatusConstants.success,
         resultListDetails: resultList,
       })
+      console.log(resultListDetails)
     } else {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
@@ -220,6 +222,11 @@ class Home extends Component {
 
   renderStateList = () => {
     const {searchInput, resultListDetails} = this.state
+    const sumOfConfirmed = resultListDetails.reduce(
+      (total, currentItem) => total + currentItem.active,
+    )
+    console.log(resultListDetails)
+    console.log(sumOfConfirmed)
     return (
       <div className="main-content-container">
         <div className="search-container">
@@ -232,13 +239,13 @@ class Home extends Component {
             onChange={this.onChangeInput}
           />
         </div>
-        <div>
-          {resultListDetails.map(eachItem => (
-            <StateListDetails
-              stateWiseDetails={eachItem}
-              key={eachItem.stateCode}
-            />
-          ))}
+        <div
+          className="country-wide-confirmed-cases"
+          testid="countryWideConfirmedCases"
+        >
+          <div className="india-confirmed-cases">
+            <h1 className="india-confirmed-title">Confirmed</h1>
+          </div>
         </div>
       </div>
     )

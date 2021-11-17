@@ -1,0 +1,42 @@
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  background-color: #161625;
+  width: 100%;
+  min-height: 100vh;
+}
+.content-failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+}
+.not-found-img {
+  height: 250px;
+  width: 400px;
+}
+.not-found-heading {
+  color: #cbd5e1;
+  font-family: 'Roboto';
+  font-size: 30px;
+  margin-top: 25px;
+}
+.not-found-para {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 18px;
+  text-align: center;
+  margin-top: 3px;
+}
+.button-home {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+  padding: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
