@@ -1,0 +1,13 @@
+.state-full-page-container {
+  background-color: #161625;
+  min-height: 100vh;
+  margin: 0px;
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}

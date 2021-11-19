@@ -1,7 +1,9 @@
 import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 import Loader from 'react-loader-spinner'
+import {FcGenericSortingAsc, FcGenericSortingDesc} from 'react-icons/fc'
 import StateListDetails from '../StateListDetails'
+import Footer from '../Footer'
 import './index.css'
 
 const apiStatusConstants = {
@@ -225,8 +227,7 @@ class Home extends Component {
     const sumOfConfirmed = resultListDetails.reduce(
       (total, currentItem) => total + currentItem.active,
     )
-    console.log(resultListDetails)
-    console.log(sumOfConfirmed)
+
     return (
       <div className="main-content-container">
         <div className="search-container">
@@ -239,13 +240,43 @@ class Home extends Component {
             onChange={this.onChangeInput}
           />
         </div>
-        <div
-          className="country-wide-confirmed-cases"
-          testid="countryWideConfirmedCases"
-        >
-          <div className="india-confirmed-cases">
-            <h1 className="india-confirmed-title">Confirmed</h1>
+        <div className="state-wise-list-container" testid="stateWiseList">
+          <div className="home-table-headings">
+            <div className="state-heading-and-icons">
+              <p className="table-states-main-heading">States/UT</p>
+              <button
+                type="button"
+                className="home-sort-button"
+                testid="ascendingSort"
+              >
+                <FcGenericSortingAsc className="sort-icon" />
+              </button>
+              <button
+                type="button"
+                className="home-sort-button"
+                testid="descendingSort"
+              >
+                <FcGenericSortingDesc className="sort-icon" />
+              </button>
+            </div>
+            <p className="table-states-main-heading">Confirmed</p>
+            <p className="table-states-main-heading">Active</p>
+            <p className="table-states-main-heading">Recovered</p>
+            <p className="table-states-main-heading">Deceased</p>
+            <p className="table-states-main-heading">Population</p>
           </div>
+          <hr className="home-horizontal-line" />
+          <ul className="list-states">
+            {resultListDetails.map(eachState => (
+              <StateListDetails
+                stateWiseDetails={eachState}
+                key={eachState.stateCode}
+              />
+            ))}
+          </ul>
+        </div>
+        <div className="home-footer-container">
+          <Footer />
         </div>
       </div>
     )

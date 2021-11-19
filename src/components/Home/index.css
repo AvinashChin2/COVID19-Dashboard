@@ -12,9 +12,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 .search-container {
-  width: 60%;
+  width: 55%;
   display: flex;
   align-items: center;
   background-color: #2f2f43;
@@ -48,7 +49,6 @@
   width: 100%;
 }
 .country-wide-confirmed-cases {
-  width: 80%;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
@@ -56,4 +56,88 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.state-wise-list-container {
+  width: 95%;
+  background-color: #1e1e30;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 768px) {
+  .state-wise-list-container {
+    width: 88%;
+  }
+}
+.home-table-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-right: 45px;
+}
+@media screen and (max-width: 768px) {
+  .home-table-headings {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.table-states-main-heading {
+  color: #f8fafc;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .table-states-main-heading {
+    font-size: 14px;
+  }
+}
+.state-heading-and-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.home-horizontal-line {
+  border: 1px solid #475569;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.list-states {
+  width: 95%;
+  margin: 0px;
+  padding-left: 5px;
+  list-style: none;
+}
+.home-sort-button {
+  background-color: transparent;
+  border: none;
+  color: #94a3b8;
+  margin-left: 5px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .home-sort-button {
+    margin-left: 0px;
+    cursor: pointer;
+  }
+}
+.sort-icon {
+  height: 20px;
+  width: 20px;
+}
+@media screen and (max-width: 768px) {
+  .sort-icon {
+    height: 16px;
+    width: 16px;
+  }
+}
+.home-footer-container {
+  margin-top: 60px;
 }
