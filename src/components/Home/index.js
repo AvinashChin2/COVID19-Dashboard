@@ -1,10 +1,12 @@
 import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 import Loader from 'react-loader-spinner'
+import {Redirect} from 'react-router-dom'
 import {FcGenericSortingAsc, FcGenericSortingDesc} from 'react-icons/fc'
 import StateListDetails from '../StateListDetails'
 import Footer from '../Footer'
 import './index.css'
+import StateComponent from '../StateComponent'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -173,7 +175,6 @@ class Home extends Component {
 
   getStateWiseDetailsList = async () => {
     const {resultListDetails} = this.state
-    const resultList = []
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const apiUrl = 'https://apis.ccbp.in/covid19-state-wise-data'
     const options = {
@@ -184,6 +185,7 @@ class Home extends Component {
       const data = await response.json()
       console.log(data)
       const keyNames = Object.keys(data)
+      console.log(keyNames)
       statesList.forEach(stateObj => {
         if (data[stateObj.state_code]) {
           const {total} = data[stateObj.state_code]
@@ -195,7 +197,7 @@ class Home extends Component {
             ? data[stateObj.state_code].meta.population
             : 0
 
-          resultList.push({
+          resultListDetails.push({
             stateCode: stateObj,
             confirmed,
             deceased,
@@ -205,12 +207,10 @@ class Home extends Component {
             active: confirmed - (deceased + recovered),
           })
         }
-        return resultList
+        return resultListDetails
       })
-      resultListDetails.push(resultList)
       this.setState({
         apiStatus: apiStatusConstants.success,
-        resultListDetails: resultList,
       })
       console.log(resultListDetails)
     } else {
@@ -224,9 +224,6 @@ class Home extends Component {
 
   renderStateList = () => {
     const {searchInput, resultListDetails} = this.state
-    const sumOfConfirmed = resultListDetails.reduce(
-      (total, currentItem) => total + currentItem.active,
-    )
 
     return (
       <div className="main-content-container">
@@ -237,7 +234,6 @@ class Home extends Component {
             value={searchInput}
             className="input-box"
             placeholder="Enter the State"
-            onChange={this.onChangeInput}
           />
         </div>
         <div className="state-wise-list-container" testid="stateWiseList">

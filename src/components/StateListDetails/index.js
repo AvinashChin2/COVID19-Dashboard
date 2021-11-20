@@ -11,6 +11,7 @@ const StateListDetails = props => {
     recovered,
     stateCode,
   } = stateWiseDetails
+
   return (
     <div className="all-state-list-cases-container">
       <div className="state-name-container">
