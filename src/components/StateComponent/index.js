@@ -161,7 +161,6 @@ class StateComponent extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
     dateList: [],
-    resultListWiseDetails: resultListDetails,
   }
 
   componentDidMount() {
@@ -212,7 +211,9 @@ class StateComponent extends Component {
       }
       return dateList
     })
-    this.setState({apiStatus: apiStatusConstants.success})
+    this.setState({
+      apiStatus: apiStatusConstants.success,
+    })
   }
 
   renderStateOfLoading = () => (
@@ -222,17 +223,14 @@ class StateComponent extends Component {
   )
 
   renderStateOfSuccess = () => {
-    const resultListDetails = this.props
+    const {dateList} = this.state
+    const {confirmed, active, deceased, tested, recovered} = {dateList}
+    console.log(dateList)
 
     return (
       <div className="state-compo-cases">
         <div className="state-name-test-container">
-          {resultListDetails.map(eachCase => (
-            <TotalCasesContent
-              casesContentDetails={eachCase}
-              key={eachCase.stateCode}
-            />
-          ))}
+          <p className="sd">{dateList.confirmed}</p>
         </div>
       </div>
     )
