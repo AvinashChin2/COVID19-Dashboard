@@ -212,7 +212,6 @@ class Home extends Component {
       this.setState({
         apiStatus: apiStatusConstants.success,
       })
-      console.log(resultListDetails)
     } else {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
@@ -236,7 +235,10 @@ class Home extends Component {
             placeholder="Enter the State"
           />
         </div>
-        <div className="state-wise-list-container" testid="stateWiseList">
+        <div
+          className="state-wise-list-container"
+          testid="stateWiseCovidDataTable"
+        >
           <div className="home-table-headings">
             <div className="state-heading-and-icons">
               <p className="table-states-main-heading">States/UT</p>
@@ -279,7 +281,7 @@ class Home extends Component {
   }
 
   renderHomeLoading = () => (
-    <div testid="loader" className="loader-container">
+    <div testid="homeRouteLoader" className="loader-container">
       <Loader type="Oval" color="#007BFF" height={40} width={40} />
     </div>
   )

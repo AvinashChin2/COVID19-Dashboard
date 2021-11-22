@@ -11,3 +11,17 @@
   width: 100%;
   min-height: 100vh;
 }
+.state-compo-cases {
+  display: flex;
+  padding: 30px;
+}
+.state-name-test-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sd {
+  color: blueviolet;
+  font-family: 'Roboto';
+  font-size: 30px;
+}
