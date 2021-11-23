@@ -14,7 +14,7 @@ const TotalCasesContent = props => {
 
   return (
     <div>
-      <h1 className="s">{confirmed}</h1>
+      <h1>kmsms</h1>
     </div>
   )
 }

@@ -161,10 +161,64 @@ class StateComponent extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
     dateList: [],
+    lastDetails: [],
   }
 
   componentDidMount() {
     this.getStateFullCases()
+    this.getStateCases()
+  }
+
+  getStateCases = async () => {
+    const {lastDetails} = this.state
+    const resultDetails = []
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+
+    const apiUrl = `https://apis.ccbp.in/covid19-timelines-data/${id}`
+    const options = {
+      method: 'GET',
+    }
+    const response = await fetch(apiUrl, options)
+    const data = await response.json()
+
+    statesList.forEach(stateObj => {
+      if (data[stateObj.state_code]) {
+        const stateId = data[stateObj.state_code]
+        const codeNames = Object.keys(stateId.dates)
+
+        codeNames.forEach(code => {
+          const confirmed = stateId.dates[code].total.confirmed
+            ? stateId.dates[code].total.confirmed
+            : 0
+          const recovered = stateId.dates[code].total.recovered
+            ? stateId.dates[code].total.recovered
+            : 0
+          const deceased = stateId.dates[code].total.deceased
+            ? stateId.dates[code].total.deceased
+            : 0
+          const tested = stateId.dates[code].total.tested
+            ? stateId.dates[code].total.tested
+            : 0
+
+          resultDetails.push({
+            stateCode: stateObj,
+            newDate: code,
+            confirmed,
+            recovered,
+            tested,
+            deceased,
+            active: confirmed - (deceased + recovered),
+          })
+        })
+      }
+      return resultDetails
+    })
+    const lastDateDetails = resultDetails[49]
+    this.setState({
+      lastDetails: lastDateDetails,
+    })
   }
 
   getStateFullCases = async () => {
@@ -172,6 +226,7 @@ class StateComponent extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
+
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const apiUrl = `https://apis.ccbp.in/covid19-timelines-data/${id}`
     const options = {
@@ -179,6 +234,7 @@ class StateComponent extends Component {
     }
     const response = await fetch(apiUrl, options)
     const data = await response.json()
+    console.log(data)
     statesList.forEach(stateObj => {
       if (data[stateObj.state_code]) {
         const content = data[stateObj.state_code]
@@ -223,14 +279,12 @@ class StateComponent extends Component {
   )
 
   renderStateOfSuccess = () => {
-    const {dateList} = this.state
-    const {confirmed, active, deceased, tested, recovered} = {dateList}
-    console.log(dateList)
-
+    const {lastDetails} = this.state
+    console.log(lastDetails)
     return (
       <div className="state-compo-cases">
         <div className="state-name-test-container">
-          <p className="sd">{dateList.confirmed}</p>
+          <h1>{lastDetails.confirmed}</h1>
         </div>
       </div>
     )
