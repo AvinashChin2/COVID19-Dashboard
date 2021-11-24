@@ -6,7 +6,7 @@
   background-color: #161625;
   min-height: 100vh;
 }
-.main-content-container {
+.main-home-content-container {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -48,15 +48,7 @@
   font-size: 15px;
   width: 100%;
 }
-.country-wide-confirmed-cases {
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-.india-confirmed-cases {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+
 .state-wise-list-container {
   width: 95%;
   background-color: #1e1e30;
@@ -114,6 +106,7 @@
   margin: 0px;
   padding-left: 5px;
   list-style: none;
+  margin-bottom: 10px;
 }
 .home-sort-button {
   background-color: transparent;

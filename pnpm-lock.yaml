@@ -12,6 +12,7 @@ dependencies:
   react-dom: 17.0.1_react@17.0.1
   react-icons: 4.3.1_react@17.0.1
   react-loader-spinner: 4.0.0_react-dom@17.0.1+react@17.0.1
+  react-number-format: 4.8.0_react-dom@17.0.1+react@17.0.1
   react-router-dom: 5.3.0_react@17.0.1
   react-select: 4.3.1_react-dom@17.0.1+react@17.0.1
   recharts: 2.1.5_react-dom@17.0.1+react@17.0.1
@@ -10929,6 +10930,17 @@ packages:
       react-dom: '*'
     resolution:
       integrity: sha512-RU2vpEej6G4ECei0h3q6bgLU10of9Lw5O+4AwF/mtkrX5oY20Sh/AxoPJ7etbrs/7Q3u4jN5qwCwGLRKCHpk6g==
+  /react-number-format/4.8.0_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      prop-types: 15.7.2
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: ^0.14 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0-0
+      react-dom: ^0.14 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0-0
+    resolution:
+      integrity: sha512-oGGiQpqzvKTR5PD2/AJbyUsci8jyupaoKxpuSPevjpWHMhFkUtmo390t+EIpJOgnuAHZogLu6PHiXgb/OXETKA==
   /react-refresh/0.8.3:
     dev: true
     engines:
@@ -13799,6 +13811,7 @@ specifiers:
   react-dom: 17.0.1
   react-icons: 4.3.1
   react-loader-spinner: 4.0.0
+  react-number-format: 4.8.0
   react-router-dom: 5.3.0
   react-scripts: 4.0.3
   react-select: 4.3.1

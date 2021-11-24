@@ -225,7 +225,7 @@ class Home extends Component {
     const {searchInput, resultListDetails} = this.state
 
     return (
-      <div className="main-content-container">
+      <div className="main-home-content-container">
         <div className="search-container">
           <BsSearch className="search-icon" />
           <input
