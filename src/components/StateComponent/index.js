@@ -265,40 +265,25 @@ class StateComponent extends Component {
             deceased,
             active: confirmed - (deceased + recovered),
           })
-        })
-        const districtNames = Object.keys(content.districts)
-        districtNames.forEach(district => {
-          const districtDates = Object.keys(content.districts[district].dates)
-          districtDates.forEach(date => {
-            const confirmed = content.districts[district].dates[date].total
-              .confirmed
-              ? content.districts[district].dates[date].total.confirmed
-              : 0
-            const recovered = content.districts[district].dates[date].total
-              .recovered
-              ? content.districts[district].dates[date].total.recovered
-              : 0
-            const deceased = content.districts[district].dates[date].total
-              .deceased
-              ? content.districts[district].dates[date].total.deceased
-              : 0
-
-            districtsList.push({
-              districtName: district,
-              confirmed,
-              deceased,
-              recovered,
-              active: confirmed - (deceased + recovered),
-              newDate: date,
-            })
-          })
+          return dateList
         })
       }
-      return dateList
     })
-    console.log(districtsList)
     this.setState({
       apiStatus: apiStatusConstants.success,
+    })
+    statesList.forEach(stateObj => {
+      if (data[stateObj.state_code]) {
+        const content = data[stateObj.state_code]
+        const districtDates = Object.keys(content.dates)
+        const districtNames = Object.keys(content.districts)
+        const allDistricts = districtNames.forEach(district => district)
+        console.log(districtNames)
+        districtDates.forEach(date => {
+          const confirmed = content.districts[date]
+          console.log(confirmed)
+        })
+      }
     })
   }
 

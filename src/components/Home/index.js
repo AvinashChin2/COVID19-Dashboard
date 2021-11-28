@@ -219,6 +219,7 @@ class Home extends Component {
 
   onChangeInput = event => {
     this.setState({searchInput: event.target.value})
+    console.log(event.target.value)
   }
 
   renderStateList = () => {
@@ -233,6 +234,7 @@ class Home extends Component {
             value={searchInput}
             className="input-box"
             placeholder="Enter the State"
+            onChange={this.onChangeInput}
           />
         </div>
         <div
