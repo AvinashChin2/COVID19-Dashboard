@@ -1,7 +1,20 @@
 import {Component, React} from 'react'
 import Loader from 'react-loader-spinner'
 import {BsCheckCircleFill} from 'react-icons/bs'
+
 import './index.css'
+import {
+  LineChart,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  Line,
+  BarChart,
+  Bar,
+} from 'recharts'
+import BarDetails from '../BarDetails'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -163,11 +176,12 @@ class StateComponent extends Component {
     dateList: [],
     districtsList: [],
     lastDetails: [],
+    lineChartDetails: [],
   }
 
   componentDidMount() {
-    this.getStateFullCases()
     this.getStateCases()
+    this.getStateTimeline()
   }
 
   getStateCases = async () => {
@@ -183,7 +197,6 @@ class StateComponent extends Component {
     }
     const response = await fetch(apiUrl, options)
     const data = await response.json()
-
     statesList.forEach(stateObj => {
       if (data[stateObj.state_code]) {
         const stateId = data[stateObj.state_code]
@@ -204,7 +217,8 @@ class StateComponent extends Component {
             : 0
 
           resultDetails.push({
-            stateCode: stateObj.state_name,
+            stateName: stateObj.state_name,
+            stateCode: stateObj.state_code,
             newDate: code,
             confirmed,
             recovered,
@@ -223,7 +237,7 @@ class StateComponent extends Component {
     })
   }
 
-  getStateFullCases = async () => {
+  getStateTimeline = async () => {
     const {districtsList} = this.state
     const {dateList} = this.state
     const {match} = this.props
@@ -237,7 +251,7 @@ class StateComponent extends Component {
     }
     const response = await fetch(apiUrl, options)
     const data = await response.json()
-    console.log(data)
+
     statesList.forEach(stateObj => {
       if (data[stateObj.state_code]) {
         const content = data[stateObj.state_code]
@@ -257,7 +271,7 @@ class StateComponent extends Component {
             : 0
 
           dateList.push({
-            stateCode: stateObj,
+            stateCode: stateObj.state_code,
             newDate: date,
             confirmed,
             recovered,
@@ -269,20 +283,11 @@ class StateComponent extends Component {
         })
       }
     })
-    this.setState({
-      apiStatus: apiStatusConstants.success,
-    })
+    this.setState({apiStatus: apiStatusConstants.success})
     statesList.forEach(stateObj => {
       if (data[stateObj.state_code]) {
         const content = data[stateObj.state_code]
-        const districtDates = Object.keys(content.dates)
-        const districtNames = Object.keys(content.districts)
-        const allDistricts = districtNames.forEach(district => district)
-        console.log(districtNames)
-        districtDates.forEach(date => {
-          const confirmed = content.districts[date]
-          console.log(confirmed)
-        })
+        const keyCodes = Object.keys(content.districts)
       }
     })
   }
@@ -301,7 +306,7 @@ class StateComponent extends Component {
         <div className="main-content">
           <div className="state-name-tested-container">
             <div className="state-name-container">
-              <h1 className="state-name-specific">{lastDetails.stateCode}</h1>
+              <h1 className="state-name-specific">{lastDetails.stateName}</h1>
               <p className="state-date-specific">
                 Last Update on october 31th 2021.
               </p>
@@ -376,13 +381,20 @@ class StateComponent extends Component {
 
   renderTimeLineSuccess = () => {
     const {dateList} = this.state
+    return (
+      <div className="bar-graph-container">
+        {dateList.map(eachBar => (
+          <BarDetails barDetails={eachBar} key={eachBar.newDate} />
+        ))}
+      </div>
+    )
   }
 
-  renderStateTimeLineLoading = () => {
-    ;<div testid="timelinesDataLoader" className="timeline-loader-container">
+  renderStateTimeLineLoading = () => (
+    <div testid="timelinesDataLoader" className="timeline-loader-container">
       <Loader type="Oval" color="#007BFF" height={40} width={40} />
     </div>
-  }
+  )
 
   renderStateComponentCases = () => {
     const {apiStatus} = this.state
