@@ -7,6 +7,7 @@ import StateListDetails from '../StateListDetails'
 import Footer from '../Footer'
 import './index.css'
 import StateComponent from '../StateComponent'
+import SearchItem from '../SearchItem'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -167,6 +168,7 @@ class Home extends Component {
     searchInput: '',
     apiStatus: apiStatusConstants.initial,
     resultListDetails: [],
+    isActive: true,
   }
 
   componentDidMount() {
@@ -209,6 +211,7 @@ class Home extends Component {
         }
         return resultListDetails
       })
+      console.log(resultListDetails)
       this.setState({
         apiStatus: apiStatusConstants.success,
       })
@@ -217,14 +220,32 @@ class Home extends Component {
     }
   }
 
+  renderSearchList = () => {
+    const {searchInput, resultListDetails} = this.state
+    const matches = resultListDetails.filter(eachState =>
+      eachState.state_name.toLowerCase().includes(searchInput.toLowerCase()),
+    )
+
+    return (
+      <div className="list">
+        <h1>ghgh</h1>
+      </div>
+    )
+  }
+
   onChangeInput = event => {
+    const {isActive} = this.state
     this.setState({searchInput: event.target.value})
-    console.log(event.target.value)
   }
 
   renderStateList = () => {
-    const {searchInput, resultListDetails} = this.state
-
+    const {searchInput, resultListDetails, isActive} = this.state
+    const matches = resultListDetails.filter(eachState =>
+      eachState.stateCode.state_name
+        .toLowerCase()
+        .includes(searchInput.toLowerCase()),
+    )
+    console.log(matches)
     return (
       <div className="main-home-content-container">
         <div className="search-container">
@@ -237,6 +258,19 @@ class Home extends Component {
             onChange={this.onChangeInput}
           />
         </div>
+        {isActive ? (
+          <div className="search-container-items">
+            <ul>
+              {matches.map(eachStateName => (
+                <SearchItem
+                  searchItemDetails={eachStateName}
+                  key={eachStateName.stateCode}
+                />
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
         <div
           className="state-wise-list-container"
           testid="stateWiseCovidDataTable"

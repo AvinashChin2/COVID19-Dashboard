@@ -26,7 +26,7 @@
 }
 .route-link {
   text-decoration: none;
-  color: #94a3b8;
+  color: #f8fafc;
   font-family: 'Roboto';
   font-size: 17px;
   font-weight: 600;
@@ -40,6 +40,9 @@
 }
 .route-link-active > :hover {
   color: #f8fafc;
+}
+.list-name{
+    color: #94A3B8;
 }
 .nav-content-list-large {
   display: flex;

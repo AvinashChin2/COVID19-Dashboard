@@ -16,17 +16,22 @@ import {
 const BarDetails = props => {
   const {barDetails} = props
   const {newDate, confirmed, stateCode} = barDetails
-
+  console.log(barDetails)
   return (
     <div>
       <div className="all-bars-container">
-        <BarChart width={150} height={400} data={barDetails} fill="#9A0E31">
+        <BarChart
+          width={150}
+          height={400}
+          data={barDetails.barDetails}
+          fill="#9A0E31"
+        >
           <CartesianGrid strokeDasharray="" />
-          <XAxis dataKey={newDate} />
+          <XAxis dataKey="newDate" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey={confirmed} fill="#9A0E31" className="bar" />
+          <Bar label="confirmed" fill="#9A0E31" className="bar" />
         </BarChart>
       </div>
     </div>

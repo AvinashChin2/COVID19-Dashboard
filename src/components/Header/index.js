@@ -19,10 +19,10 @@ class Header extends Component {
     <div className="mobile-drop-down-container">
       <ul className="mobile-list-items">
         <Link to="/" className="route-link">
-          <li>Home</li>
+          <li className="list-name">Home</li>
         </Link>
         <Link to="/about" className="route-link">
-          <li>About</li>
+          <li className="list-name">About</li>
         </Link>
       </ul>
       <div className="close-container">

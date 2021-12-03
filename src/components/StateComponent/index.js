@@ -379,15 +379,33 @@ class StateComponent extends Component {
     )
   }
 
-  renderTimeLineSuccess = () => {
+  renderBarChart = () => {
     const {dateList} = this.state
     return (
-      <div className="bar-graph-container">
-        {dateList.map(eachBar => (
-          <BarDetails barDetails={eachBar} key={eachBar.newDate} />
-        ))}
+      <div>
+        <h1>Bar Chart</h1>
+        <div>
+          <BarChart width={800} height={450} data={dateList}>
+            <CartesianGrid strokeDasharray="" />
+            <XAxis dataKey={dateList.newDate} />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar
+              dataKey={dateList.confirmed}
+              fill="#8884d8"
+              className="bar"
+              label={{position: 'top', color: 'white'}}
+            />
+          </BarChart>
+        </div>
       </div>
     )
+  }
+
+  renderTimeLineSuccess = () => {
+    const {dateList} = this.state
+    return <div className="bar-graph-container">{this.renderBarChart()}</div>
   }
 
   renderStateTimeLineLoading = () => (
