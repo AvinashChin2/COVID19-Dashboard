@@ -5,6 +5,10 @@
   color: #f8fafc;
   cursor: pointer;
 }
+.footer-title {
+  display: flex;
+  flex-direction: row;
+}
 @media screen and (max-width: 768px) {
   .footer-logo-name {
     font-size: 16px;

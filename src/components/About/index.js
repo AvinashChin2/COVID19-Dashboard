@@ -52,13 +52,13 @@ class About extends Component {
   renderAboutSuccess = () => {
     const {aboutFactoids, aboutFaqs} = this.state
     return (
-      <div className="about-main-container">
+      <div className="about-main-container" testid="faqsUnorderedList">
         <h1 className="about-title">About</h1>
         <p className="about-date">Last update on march 28th 2021.</p>
         <h1 className="about-heading">
           COVID-19 vaccines be ready for distribution
         </h1>
-        <ul className="about-faqs-container" testid="about-faqs">
+        <ul className="about-faqs-container" testid="faqsUnorderedList">
           {aboutFaqs.map(eachItem => (
             <Faqs faqDetails={eachItem} key={eachItem.qno} />
           ))}
@@ -82,7 +82,7 @@ class About extends Component {
   )
 
   renderAboutLoading = () => (
-    <div testid="loader" className="loader-container">
+    <div testid="aboutRouteLoader" className="loader-container">
       <Loader type="Oval" color="#007BFF" height={40} width={40} />
     </div>
   )

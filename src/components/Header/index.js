@@ -43,17 +43,17 @@ class Header extends Component {
       <nav className="header-main-container">
         <div className="nav-container">
           <Link to="/" className="route-link">
-            <h1 className="logo-name">
-              COVID19
-              <span className="india-name">INDIA</span>
-            </h1>
+            <div className="title-heading">
+              <h1 className="logo-name">COVID19</h1>
+              <h1 className="india-name">INDIA</h1>
+            </div>
           </Link>
           <div className="nav-content-list-large">
             <Link to="/" className="route-link-active">
-              Home
+              <li>Home</li>
             </Link>
             <Link to="/about" className="route-link-active">
-              About
+              <li>About</li>
             </Link>
           </div>
           <div className="nav-content-list-mobile">

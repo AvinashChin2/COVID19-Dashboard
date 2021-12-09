@@ -1,0 +1,43 @@
+.enter-search-list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-top: 0px;
+}
+.state-heading-list {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #64748b;
+}
+.state-code-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(28, 212, 212, 0.16);
+  padding: 0px;
+  line-height: 10px;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.state-code-name-list {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #facc15;
+  margin-right: 8px;
+}
+.square-arrow-icon {
+  font-size: 20px;
+  color: #facc15;
+}
+.link-for-search {
+  text-decoration: none;
+}
+.divide {
+  width: 100%;
+  border: #64748b 0.3px solid;
+  opacity: 0.3;
+}

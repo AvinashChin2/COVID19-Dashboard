@@ -6,7 +6,7 @@ import {FcGenericSortingAsc, FcGenericSortingDesc} from 'react-icons/fc'
 import StateListDetails from '../StateListDetails'
 import Footer from '../Footer'
 import './index.css'
-import StateComponent from '../StateComponent'
+import StateSpecific from '../State-specific'
 import SearchItem from '../SearchItem'
 
 const apiStatusConstants = {
@@ -220,56 +220,52 @@ class Home extends Component {
     }
   }
 
-  renderSearchList = () => {
-    const {searchInput, resultListDetails} = this.state
-    const matches = resultListDetails.filter(eachState =>
-      eachState.state_name.toLowerCase().includes(searchInput.toLowerCase()),
-    )
-
-    return (
-      <div className="list">
-        <h1>ghgh</h1>
-      </div>
-    )
-  }
-
   onChangeInput = event => {
-    const {isActive} = this.state
     this.setState({searchInput: event.target.value})
   }
 
-  renderStateList = () => {
-    const {searchInput, resultListDetails, isActive} = this.state
+  onEnterInput = () => {
+    const {isActive, resultListDetails, searchInput} = this.state
+
+    console.log(isActive)
     const matches = resultListDetails.filter(eachState =>
       eachState.stateCode.state_name
         .toLowerCase()
         .includes(searchInput.toLowerCase()),
     )
-    console.log(matches)
+    return (
+      <div className="search-container-items">
+        <ul className="list-items-search-input">
+          {matches.map(eachStateName => (
+            <SearchItem
+              searchItemDetails={eachStateName}
+              key={eachStateName.stateCode}
+            />
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  renderStateList = () => {
+    const {searchInput, resultListDetails, isActive} = this.state
+
     return (
       <div className="main-home-content-container">
         <div className="search-container">
-          <BsSearch className="search-icon" />
-          <input
-            type="search"
-            value={searchInput}
-            className="input-box"
-            placeholder="Enter the State"
-            onChange={this.onChangeInput}
-          />
-        </div>
-        {isActive ? (
-          <div className="search-container-items">
-            <ul>
-              {matches.map(eachStateName => (
-                <SearchItem
-                  searchItemDetails={eachStateName}
-                  key={eachStateName.stateCode}
-                />
-              ))}
-            </ul>
+          <div className="search-container-box">
+            <BsSearch className="search-icon" />
+            <input
+              type="search"
+              value={searchInput}
+              className="input-box"
+              placeholder="Enter the State"
+              onChange={this.onChangeInput}
+              onKeyUp={this.onEnterInput}
+            />
           </div>
-        ) : null}
+          <div className="render-list-items">{this.onEnterInput()}</div>
+        </div>
 
         <div
           className="state-wise-list-container"

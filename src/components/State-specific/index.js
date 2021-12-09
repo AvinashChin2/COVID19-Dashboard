@@ -170,7 +170,7 @@ const statesList = [
   },
 ]
 
-class StateComponent extends Component {
+class StateSpecific extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
     dateList: [],
@@ -453,4 +453,4 @@ class StateComponent extends Component {
     )
   }
 }
-export default StateComponent
+export default StateSpecific

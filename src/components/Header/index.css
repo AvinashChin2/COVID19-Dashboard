@@ -11,18 +11,25 @@
   padding-left: 50px;
   padding-right: 50px;
 }
+.title-heading {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+}
 .logo-name {
   font-family: 'Bree Serif';
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: #f8fafc;
   cursor: pointer;
+  margin-right: 0px;
 }
 .india-name {
   font-family: 'Bree Serif';
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: #007bff;
+  margin-left: 0px;
 }
 .route-link {
   text-decoration: none;
@@ -35,14 +42,12 @@
   border: none;
   cursor: pointer;
 }
-.route-link > :hover {
-  color: #f8fafc;
-}
+
 .route-link-active > :hover {
   color: #f8fafc;
 }
-.list-name{
-    color: #94A3B8;
+.list-name {
+  color: #94a3b8;
 }
 .nav-content-list-large {
   display: flex;
@@ -59,6 +64,8 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
 }
 @media screen and (max-width: 768px) {
   .nav-content-list-large {

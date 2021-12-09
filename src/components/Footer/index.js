@@ -7,8 +7,7 @@ export default function Footer() {
   return (
     <div className="footer-main-container">
       <h1 className="footer-logo-name">
-        COVID19
-        <span className="footer-india-name">INDIA</span>
+        COVID19<span className="footer-india-name">INDIA</span>
       </h1>
       <p className="footer-paragraph">
         we stand with everyone fighting on the front lines
