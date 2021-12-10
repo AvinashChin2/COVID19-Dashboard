@@ -14,7 +14,7 @@ const StateListDetails = props => {
 
   return (
     <div className="all-state-list-cases-container">
-      <Link to={`/${stateCode.state_code}`} className="link">
+      <Link to={`/state/${stateCode.state_code}`} className="link">
         <button type="button" className="state-names-ind">
           {stateCode.state_name}
         </button>

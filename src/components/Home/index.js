@@ -6,7 +6,7 @@ import {FcGenericSortingAsc, FcGenericSortingDesc} from 'react-icons/fc'
 import StateListDetails from '../StateListDetails'
 import Footer from '../Footer'
 import './index.css'
-import StateSpecific from '../State-specific'
+
 import SearchItem from '../SearchItem'
 
 const apiStatusConstants = {

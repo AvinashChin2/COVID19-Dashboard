@@ -189,9 +189,9 @@ class StateSpecific extends Component {
     const resultDetails = []
     const {match} = this.props
     const {params} = match
-    const {id} = params
+    const {stateCode} = params
     this.setState({apiStatus: apiStatusConstants.inProgress})
-    const apiUrl = `https://apis.ccbp.in/covid19-timelines-data/${id}`
+    const apiUrl = `https://apis.ccbp.in/covid19-timelines-data/${stateCode}`
     const options = {
       method: 'GET',
     }
