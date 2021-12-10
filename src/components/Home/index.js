@@ -168,7 +168,7 @@ class Home extends Component {
     searchInput: '',
     apiStatus: apiStatusConstants.initial,
     resultListDetails: [],
-    isActive: true,
+    filteredData: [],
   }
 
   componentDidMount() {
@@ -221,34 +221,22 @@ class Home extends Component {
   }
 
   onChangeInput = event => {
+    const {searchInput, resultListDetails, filteredData} = this.state
     this.setState({searchInput: event.target.value})
-  }
-
-  onEnterInput = () => {
-    const {isActive, resultListDetails, searchInput} = this.state
-
-    console.log(isActive)
-    const matches = resultListDetails.filter(eachState =>
-      eachState.stateCode.state_name
-        .toLowerCase()
-        .includes(searchInput.toLowerCase()),
-    )
-    return (
-      <div className="search-container-items">
-        <ul className="list-items-search-input">
-          {matches.map(eachStateName => (
-            <SearchItem
-              searchItemDetails={eachStateName}
-              key={eachStateName.stateCode}
-            />
-          ))}
-        </ul>
-      </div>
-    )
+    if (searchInput !== '') {
+      const matches = resultListDetails.filter(eachState =>
+        eachState.stateCode.state_name
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()),
+      )
+      this.setState({filteredData: matches})
+    } else {
+      this.setState({filteredData: []})
+    }
   }
 
   renderStateList = () => {
-    const {searchInput, resultListDetails, isActive} = this.state
+    const {searchInput, resultListDetails, filteredData} = this.state
 
     return (
       <div className="main-home-content-container">
@@ -261,10 +249,22 @@ class Home extends Component {
               className="input-box"
               placeholder="Enter the State"
               onChange={this.onChangeInput}
-              onKeyUp={this.onEnterInput}
             />
           </div>
-          <div className="render-list-items">{this.onEnterInput()}</div>
+          <div className="render-list-items">
+            {filteredData.length !== 0 ? (
+              <div className="search-container-items">
+                <ul className="list-items-search-input">
+                  {filteredData.map(eachStateName => (
+                    <SearchItem
+                      searchItemDetails={eachStateName}
+                      key={eachStateName.stateCode}
+                    />
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
         </div>
 
         <div

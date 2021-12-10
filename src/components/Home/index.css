@@ -146,6 +146,12 @@
   list-style: none;
   padding-left: 10px;
   padding-right: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100px;
+}
+.list-items-search-input::-webkit-scrollbar {
+  display: none;
 }
 .render-list-items {
   width: 100%;
