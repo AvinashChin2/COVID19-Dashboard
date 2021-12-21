@@ -2,6 +2,8 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Faqs from '../Faqs'
 import Footer from '../Footer'
+import FactsList from '../FactsList'
+import Header from '../Header'
 import './index.css'
 
 const apiStatusConstants = {
@@ -39,10 +41,15 @@ class About extends Component {
         qno: eachFaq.qno,
         question: eachFaq.question,
       }))
+      const updateFactoidsData = data.factoids.map(each => ({
+        banner: each.banner,
+        id: each.id,
+      }))
       aboutFaqs.push(updatedData)
       this.setState({
         aboutFaqs: updatedData,
         apiStatus: apiStatusConstants.success,
+        aboutFactoids: updateFactoidsData,
       })
     } else {
       this.renderAboutFailure()
@@ -61,6 +68,12 @@ class About extends Component {
         <ul className="about-faqs-container" testid="faqsUnorderedList">
           {aboutFaqs.map(eachItem => (
             <Faqs faqDetails={eachItem} key={eachItem.qno} />
+          ))}
+        </ul>
+        <h1 className="about-vaccine-title">Facts</h1>
+        <ul className="factList">
+          {aboutFactoids.map(each => (
+            <FactsList key={each.id} banner={each.banner} />
           ))}
         </ul>
         <div className="about-footer-container">
@@ -103,7 +116,12 @@ class About extends Component {
   }
 
   render() {
-    return <div className="about-app-container">{this.renderAboutPage()}</div>
+    return (
+      <>
+        <Header />
+        <div className="about-app-container">{this.renderAboutPage()}</div>
+      </>
+    )
   }
 }
 export default About

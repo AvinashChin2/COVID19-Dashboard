@@ -1,158 +1,203 @@
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+.main-container {
   background-color: #161625;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-.main-home-content-container {
-  display: flex;
+
+.container {
   width: 100%;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  margin-bottom: 20px;
+}
+.search-result-container {
+  list-style-type: none;
+  width: 60%;
+  margin-right: 30px;
+  margin-top: 0px;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 200px;
 }
 .search-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 55%;
-  margin-top: 15px;
-}
-.search-container-box {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  background-color: #2f2f43;
+  background: #2f2f43;
   border-radius: 8px;
-  padding: 16px;
+  margin: 32px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 57.22%;
+  padding: 18px;
 }
 .search-icon {
   color: #94a3b8;
-  font-size: 16px;
-  margin-right: 10px;
+  font-size: 20px;
+  margin: 0px 20px;
 }
-.loader-container {
+
+.search-bar {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  width: 90%;
+  padding-right: 20px;
+  color: #94a3b8;
+}
+
+.country-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.stats-block-column {
+  text-align: center;
+  min-width: 120px;
+  margin: 0px 10px;
+}
+
+.stats-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.stats-icon {
+  font-size: 38px;
+}
+.stats-number {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.red {
+  color: #ff073a;
+}
+.blue {
+  color: #007bff;
+}
+.green {
+  color: #28a745;
+}
+.gray {
+  color: #6c757d;
+}
+
+.list {
+  list-style-type: none;
+}
+.all-states-table {
+  width: 100%;
+  background: #1e1e30;
+  border: 1px solid #475569;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 12px;
+  align-self: flex-start;
+  margin-bottom: 25px;
+}
+
+.table-header {
+  border-bottom: 1px solid #475569;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 72px;
+}
+
+.state-table {
+  width: 90%;
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.table-header-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f8fafc;
+}
+.state-wise-data-container {
+  display: flex;
+  flex-direction: column;
+}
+.states-names {
+  width: 22%;
+}
+
+.state-name-heading {
+  width: 22%;
+  padding: 0px 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.order {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.order-icon {
+  color: #94a3b8;
+  background-color: transparent;
+}
+
+.other-tables-bar {
+  width: 15.6%;
+}
+
+.other-tables {
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .search-container {
+    width: 90%;
+  }
+
+  .country-stats {
+    width: 100%;
+  }
+  .stats-number {
+    font-size: 16px;
+  }
+  .stats-block-column {
+    margin: 0px 3px;
+  }
+  .all-states-table {
+    width: 800px;
+    overflow-x: auto;
+  }
+}
+.Home-loader-container {
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  min-height: 100vh;
-}
-.input-box {
-  background-color: transparent;
-  border: none;
-  text-decoration: none;
-  outline: none;
-  color: #94a3b8;
-  font-family: 'Roboto';
-  font-size: 15px;
-  width: 100%;
-}
-
-.state-wise-list-container {
-  width: 95%;
-  background-color: #1e1e30;
-  border: 1px solid #475569;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-@media screen and (max-width: 768px) {
-  .state-wise-list-container {
-    width: 88%;
-  }
-}
-.home-table-headings {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  justify-content: space-between;
-  padding-top: 10px;
-  padding-left: 25px;
-  padding-right: 45px;
-}
-@media screen and (max-width: 768px) {
-  .home-table-headings {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-.table-states-main-heading {
-  color: #f8fafc;
-  font-family: 'Roboto';
-  font-size: 18px;
-  font-weight: bold;
-}
-@media screen and (max-width: 768px) {
-  .table-states-main-heading {
-    font-size: 14px;
-  }
-}
-.state-heading-and-icons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-.home-horizontal-line {
-  border: 1px solid #475569;
-  width: 100%;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.list-states {
-  width: 95%;
-  margin: 0px;
-  padding-left: 5px;
-  list-style: none;
-  margin-bottom: 10px;
-}
-.home-sort-button {
-  background-color: transparent;
-  border: none;
-  color: #94a3b8;
-  margin-left: 5px;
-  cursor: pointer;
-}
-@media screen and (max-width: 768px) {
-  .home-sort-button {
-    margin-left: 0px;
-    cursor: pointer;
-  }
-}
-.sort-icon {
-  height: 20px;
-  width: 20px;
-}
-@media screen and (max-width: 768px) {
-  .sort-icon {
-    height: 16px;
-    width: 16px;
-  }
-}
-.home-footer-container {
-  margin-top: 60px;
-}
-.search-container-items {
-  background-color: transparent;
-}
-.list-items-search-input {
-  list-style: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  overflow: hidden;
-  overflow-y: auto;
-  height: 100px;
-}
-.list-items-search-input::-webkit-scrollbar {
-  display: none;
-}
-.render-list-items {
-  width: 100%;
+  padding: 30px;
 }

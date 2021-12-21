@@ -28,7 +28,7 @@
 .about-title {
   color: #f8fafc;
   font-family: 'Roboto';
-  font-size: 37px;
+  font-size: 35px;
   font-weight: 600;
   margin: 8px;
 }
@@ -50,7 +50,7 @@
 .about-heading {
   color: #e2e8f0;
   font-family: 'Roboto';
-  font-size: 27px;
+  font-size: 25px;
   font-weight: 500;
 }
 @media screen and (max-width: 768px) {
@@ -82,4 +82,17 @@
   font-family: 'Roboto';
   font-size: 30px;
   margin-top: 25px;
+}
+.about-vaccine-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36px;
+  color: #e2e8f0;
+}
+.factList {
+  margin-top: 15px;
+  padding-left: 20px;
+  list-style-type: none;
 }

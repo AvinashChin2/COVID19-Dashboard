@@ -1,42 +1,55 @@
-.enter-search-list-container {
+.search-result {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-result-heading {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #64748b;
+}
+.name-code {
+  color: #facc15;
+}
+
+.search-button {
+  background: rgba(28, 212, 212, 0.16);
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+.state-code-search-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  padding-top: 0px;
 }
-.state-heading-list {
-  font-family: 'Roboto';
-  font-size: 16px;
-  color: #64748b;
-}
-.state-code-list {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: rgba(28, 212, 212, 0.16);
-  padding: 0px;
-  line-height: 10px;
-  border-radius: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.state-code-name-list {
-  font-family: 'Roboto';
-  font-size: 15px;
-  color: #facc15;
-  margin-right: 8px;
-}
-.square-arrow-icon {
+.icon-right {
+  margin-left: 5px;
   font-size: 20px;
-  color: #facc15;
 }
-.link-for-search {
+
+.link-search {
   text-decoration: none;
+  cursor: pointer;
 }
-.divide {
+.horizontal-line {
   width: 100%;
   border: #64748b 0.3px solid;
   opacity: 0.3;

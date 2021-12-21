@@ -2,32 +2,44 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const StateListDetails = props => {
-  const {stateWiseDetails} = props
+  const {data} = props
   const {
-    active,
+    stateName,
     confirmed,
-    deceased,
-    population,
     recovered,
+    deceased,
+    other,
+    population,
     stateCode,
-  } = stateWiseDetails
+  } = data
+  const active = confirmed - recovered - deceased - other
 
   return (
-    <div className="all-state-list-cases-container">
-      <Link to={`/state/${stateCode.state_code}`} className="link">
-        <button type="button" className="state-names-ind">
-          {stateCode.state_name}
-        </button>
-      </Link>
-
-      <div className="cases-all-box">
-        <p className="home-confirmed">{confirmed}</p>
-        <p className="home-active">{active}</p>
-        <p className="home-recovered">{recovered}</p>
-        <p className="home-deceased">{deceased}</p>
-        <p className="home-population">{population}</p>
-      </div>
-    </div>
+    <>
+      <li className="list-all-cases ">
+        <div className="states-container-home">
+          <Link to={`/state/${stateCode}`} className="link-home">
+            <p className="states-names-home">{stateName}</p>
+          </Link>
+        </div>
+        <div className="home-columns">
+          <p className="confirmed-home">{confirmed}</p>
+        </div>
+        <div className="home-columns">
+          <p className="active-home">{active}</p>
+        </div>
+        <div className="home-columns">
+          <p className="recovered-home">{recovered}</p>
+        </div>
+        <div className="home-columns">
+          <p className="deceased-home">{deceased}</p>
+        </div>
+        <div className="home-columns">
+          <p className="population-home">{population}</p>
+        </div>
+      </li>
+    </>
   )
 }
+
 export default StateListDetails
