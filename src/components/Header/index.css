@@ -22,7 +22,7 @@
   color: #3b82f6;
 }
 .menu {
-  background-color: #1e1e30;
+  background-color: #161625;
 }
 .mobile-view-header {
   display: flex;
@@ -45,7 +45,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: #1e1e30;
+
   height: 80px;
   margin: 0px;
 }
