@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {AiFillCloseCircle} from 'react-icons/ai'
 import './index.css'
 
 class Header extends Component {
@@ -9,18 +10,27 @@ class Header extends Component {
     this.setState(prevState => ({isToggleActive: !prevState.isToggleActive}))
   }
 
-  showDropDownMenu = () => (
-    <>
-      <ul className="navBar">
-        <Link to="/" className="link">
-          <li className="item">Home</li>
-        </Link>
+  onClickClose = () => {
+    this.setState({isToggleActive: false})
+  }
 
-        <Link to="/about" className="link">
-          <li className="item">About</li>
-        </Link>
-      </ul>
-    </>
+  showDropDownMenu = () => (
+    <div className="mobile-view-header">
+      <div>
+        <ul className="navBar">
+          <Link to="/" className="link">
+            <li className="item">Home</li>
+          </Link>
+
+          <Link to="/about" className="link">
+            <li className="item">About</li>
+          </Link>
+        </ul>
+      </div>
+      <button className="close" type="button" onClick={this.onClickClose}>
+        <AiFillCloseCircle className="close-icon" />
+      </button>
+    </div>
   )
 
   render() {
@@ -57,7 +67,10 @@ class Header extends Component {
               className="toggle-button"
               onClick={this.whenToggleButtonClick}
             >
-              <img src="/img/add-to-queue 1.png" alt="menu" />
+              <img
+                src="https://res.cloudinary.com/avinashchinthapally/image/upload/v1640280281/Project%20Images/add-to-queue_1_1_u2n0er.svg"
+                alt="menu"
+              />
             </button>
           </div>
 

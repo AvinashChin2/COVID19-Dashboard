@@ -21,12 +21,33 @@
 .india {
   color: #3b82f6;
 }
-
+.menu {
+  background-color: #1e1e30;
+}
+.mobile-view-header {
+  display: flex;
+  justify-content: space-between;
+}
+.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+  background-color: transparent;
+  border: none;
+}
+.close-icon {
+  color: #ffffff;
+  font-size: 20px;
+}
 .navBar {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  background-color: #1e1e30;
+  height: 80px;
+  margin: 0px;
 }
 
 .item {

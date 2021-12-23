@@ -148,9 +148,9 @@ class ChartsDetails extends Component {
 
   allChartsView = () => (
     <>
-      <div className="barchart-container">{this.barChart()}</div>
+      <div className="bar-chart-container">{this.barChart()}</div>
       <h1 className="charts-title">Daily Spread Trends</h1>
-      <div testid="lineChartsContainer" className="barcharts-container">
+      <div testid="lineChartsContainer" className="bar-charts-container">
         <div className="charts confirmed-background">
           {this.graph('confirmed', '#FF073A')}
         </div>
