@@ -25,7 +25,7 @@ class About extends Component {
   }
 
   getAboutPageDetails = async () => {
-    const {aboutFactoids, aboutFaqs} = this.state
+    const {aboutFaqs} = this.state
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const apiUrl = 'https://apis.ccbp.in/covid19-faqs'
     const options = {
@@ -71,7 +71,7 @@ class About extends Component {
           ))}
         </ul>
         <h1 className="about-vaccine-title">Facts</h1>
-        <ul className="factList">
+        <ul className="factList" testid="faqsUnorderedList">
           {aboutFactoids.map(each => (
             <FactsList key={each.id} banner={each.banner} />
           ))}

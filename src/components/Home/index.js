@@ -399,34 +399,36 @@ class Home extends Component {
       filteredSearchList.length === 0 ? '' : this.showSearchList()
 
     return (
-      <div className="main-container">
+      <>
         <Header />
-        <div className="container">
-          <div className="search-container">
-            <BsSearch testid="searchIcon" className="search-icon" />
-            <input
-              type="search"
-              placeholder="Enter the State"
-              className="search-bar"
-              onChange={this.searchStarted}
-              onAbort={this.removeFilteredList}
-            />
-          </div>
-          {search.length > 0 ? showSearchList : ''}
-          {isLoading ? (
-            this.renderLoadingView()
-          ) : (
-            <>
-              <div className="country-stats">
-                {this.renderAllNationalData()}
-              </div>
-              <div className="state-table">{this.renderAllStatesList()}</div>
-            </>
-          )}
+        <div className="main-container">
+          <div className="container">
+            <div className="search-container">
+              <BsSearch testid="searchIcon" className="search-icon" />
+              <input
+                type="search"
+                placeholder="Enter the State"
+                className="search-bar"
+                onChange={this.searchStarted}
+                onAbort={this.removeFilteredList}
+              />
+            </div>
+            {search.length > 0 ? showSearchList : ''}
+            {isLoading ? (
+              this.renderLoadingView()
+            ) : (
+              <>
+                <div className="country-stats">
+                  {this.renderAllNationalData()}
+                </div>
+                <div className="state-table">{this.renderAllStatesList()}</div>
+              </>
+            )}
 
-          <Footer />
+            <Footer />
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }

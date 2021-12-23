@@ -3,18 +3,18 @@ import {BiChevronRightSquare} from 'react-icons/bi'
 import './index.css'
 
 const SearchItem = props => {
-  const {statename, statecode, id} = props
+  const {stateName, stateCode, id} = props
 
   return (
     <li>
       <Link to={`/state/${id}`} className="link-search">
         <div className="state-code-search-container">
           <div className="search-result">
-            <h1 className="search-result-heading font-face-gm">{statename}</h1>
+            <h1 className="search-result-heading font-face-gm">{stateName}</h1>
           </div>
           <div className="name-code">
             <p className="search-button">
-              {statecode}
+              {stateCode}
               <BiChevronRightSquare
                 testid="searchResultChevronRightIcon"
                 alt="line icon"
