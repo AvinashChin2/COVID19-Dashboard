@@ -20,10 +20,10 @@ class ChartsDetails extends Component {
   }
 
   componentDidMount() {
-    this.getChartData()
+    this.getChartsData()
   }
 
-  getChartData = async () => {
+  getChartsData = async () => {
     const {stateCode} = this.props
     console.log(stateCode)
     const apiUrl = `https://apis.ccbp.in/covid19-timelines-data`

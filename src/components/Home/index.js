@@ -239,41 +239,41 @@ class Home extends Component {
     return (
       <>
         <div testid="countryWideConfirmedCases" className="stats-block-column">
-          <p className="stats-title red">Confirmed</p>
+          <p className="stats-title-red">Confirmed</p>
           <img
             src="https://res.cloudinary.com/avinashchinthapally/image/upload/v1637754802/Project%20Images/check-mark_1_lv6pdk.svg"
-            className="stats-icon"
+            className="stats-icon-red"
             alt="country wide confirmed cases pic"
           />
 
-          <p className="stats-number red">{totalConfirmedCases}</p>
+          <p className="stats-number-red">{totalConfirmedCases}</p>
         </div>
         <div testid="countryWideActiveCases" className="stats-block-column">
-          <p className="stats-title blue">Active</p>
+          <p className="stats-title-blue">Active</p>
           <img
             src="https://res.cloudinary.com/avinashchinthapally/image/upload/v1637753075/Project%20Images/protection_1_lv7qls.svg"
-            className="stats-icon"
+            className="stats-icon-blue"
             alt="country wide active cases pic"
           />
-          <p className="stats-number blue">{totalActiveCases}</p>
+          <p className="stats-number-blue">{totalActiveCases}</p>
         </div>
         <div testid="countryWideRecoveredCases" className="stats-block-column">
-          <p className="stats-title green">Recovered</p>
+          <p className="stats-title-green">Recovered</p>
           <img
             src="https://res.cloudinary.com/avinashchinthapally/image/upload/v1637753210/Project%20Images/recovered_1_grkgaa.svg"
-            className="stats-icon"
+            className="stats-icon-green"
             alt="country wide recovered cases pic"
           />
-          <p className="stats-number green">{totalRecoveredCases}</p>
+          <p className="stats-number-green">{totalRecoveredCases}</p>
         </div>
         <div testid="countryWideDeceasedCases" className="stats-block-column ">
-          <p className="stats-title gray">Deceased</p>
+          <p className="stats-title-gray">Deceased</p>
           <img
             src="https://res.cloudinary.com/avinashchinthapally/image/upload/v1637753322/Project%20Images/breathing_1_u9ikvw.svg"
-            className="stats-icon"
+            className="stats-icon-gray"
             alt="country wide deceased cases pic"
           />
-          <p className="stats-number gray">{totalDeceasedCases}</p>
+          <p className="stats-number-gray">{totalDeceasedCases}</p>
         </div>
       </>
     )
@@ -285,7 +285,7 @@ class Home extends Component {
     </div>
   )
 
-  whenAscendingSortButtonClicked = () => {
+  onClickAscendingSort = () => {
     const {statesinfo} = this.state
     const sortedList = statesinfo.sort((a, b) => {
       const x = a.stateName.toUpperCase()
@@ -295,7 +295,7 @@ class Home extends Component {
     this.setState({statesinfo: sortedList})
   }
 
-  whenDescendingSortButtonClicked = () => {
+  onClickDescendingSort = () => {
     const {statesinfo} = this.state
     const sortedList = statesinfo.sort((a, b) => {
       const x = a.stateName.toUpperCase()
@@ -317,7 +317,7 @@ class Home extends Component {
               className="order"
               type="button"
               testid="ascendingSort"
-              onClick={this.whenAscendingSortButtonClicked}
+              onClick={this.onClickAscendingSort}
             >
               <FcGenericSortingAsc className="order-icon" />
             </button>
@@ -325,7 +325,7 @@ class Home extends Component {
               className="order"
               type="button"
               testid="descendingSort"
-              onClick={this.whenDescendingSortButtonClicked}
+              onClick={this.onClickDescendingSort}
             >
               <FcGenericSortingDesc className="order-icon" />
             </button>

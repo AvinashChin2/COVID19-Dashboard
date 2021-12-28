@@ -6,7 +6,7 @@ import './index.css'
 class Header extends Component {
   state = {isToggleActive: false}
 
-  whenToggleButtonClick = () => {
+  onClickToggleButton = () => {
     this.setState(prevState => ({isToggleActive: !prevState.isToggleActive}))
   }
 
@@ -65,7 +65,7 @@ class Header extends Component {
             <button
               type="button"
               className="toggle-button"
-              onClick={this.whenToggleButtonClick}
+              onClick={this.onClickToggleButton}
             >
               <img
                 src="https://res.cloudinary.com/avinashchinthapally/image/upload/v1640280281/Project%20Images/add-to-queue_1_1_u2n0er.svg"
