@@ -39,19 +39,23 @@ class Header extends Component {
     return (
       <>
         <div className="header-container">
-          <Link to="/" className="link">
-            <h1 className="logo">
-              COVID19<span className="india">INDIA</span>
-            </h1>
-          </Link>
-          <ul className="navBar">
+          <h1 className="logo">
             <Link to="/" className="link">
-              <li className="item">Home</li>
+              COVID19<span className="india">INDIA</span>
             </Link>
+          </h1>
 
-            <Link to="/about" className="link">
-              <li className="item">About</li>
-            </Link>
+          <ul className="navBar">
+            <li className="item">
+              <Link to="/" className="link">
+                Home
+              </Link>
+            </li>
+            <li className="item">
+              <Link to="/about" className="link">
+                About
+              </Link>
+            </li>
           </ul>
         </div>
 

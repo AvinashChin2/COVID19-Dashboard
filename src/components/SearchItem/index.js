@@ -10,7 +10,7 @@ const SearchItem = props => {
       <Link to={`/state/${id}`} className="link-search">
         <div className="state-code-search-container">
           <div className="search-result">
-            <h1 className="search-result-heading font-face-gm">{stateName}</h1>
+            <h1 className="search-result-heading">{stateName}</h1>
           </div>
           <div className="name-code">
             <p className="search-button">

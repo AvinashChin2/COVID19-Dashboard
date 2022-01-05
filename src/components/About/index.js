@@ -59,7 +59,7 @@ class About extends Component {
   renderAboutSuccess = () => {
     const {aboutFactoids, aboutFaqs} = this.state
     return (
-      <div className="about-main-container" testid="faqsUnorderedList">
+      <div className="about-main-container">
         <h1 className="about-title">About</h1>
         <p className="about-date">Last update on march 28th 2021.</p>
         <h1 className="about-heading">
@@ -71,7 +71,7 @@ class About extends Component {
           ))}
         </ul>
         <h1 className="about-vaccine-title">Facts</h1>
-        <ul className="factList" testid="faqsUnorderedList">
+        <ul className="factList">
           {aboutFactoids.map(each => (
             <FactsList key={each.id} banner={each.banner} />
           ))}

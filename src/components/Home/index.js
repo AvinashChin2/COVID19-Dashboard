@@ -380,8 +380,8 @@ class Home extends Component {
         {filteredSearchList.map(each => (
           <SearchItem
             key={each.state_code}
-            statename={each.state_name}
-            statecode={each.state_code}
+            stateName={each.state_name}
+            stateCode={each.state_code}
             id={each.state_code}
           />
         ))}
